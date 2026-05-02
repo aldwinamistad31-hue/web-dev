@@ -1,0 +1,301 @@
+﻿:root {
+    --bg: #0a0b16;
+    --card: rgba(255, 255, 255, 0.08);
+    --text: #e5e7ff;
+    --muted: rgba(229, 231, 255, 0.75);
+    --accent: #7c50ff;
+    --accent-2: #5c98ff;
+    --border: rgba(255, 255, 255, 0.12);
+    --shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    --radius: 18px;
+    --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--text);
+    background: radial-gradient(circle at top, rgba(124, 80, 255, 0.28), transparent 55%),
+                radial-gradient(circle at 80% 30%, rgba(92, 152, 255, 0.25), transparent 60%),
+                linear-gradient(180deg, #0a0b16 0%, #060610 100%);
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+a { color: inherit; text-decoration: none; }
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 1.2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(14px);
+    background: rgba(10, 11, 22, 0.45);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+}
+
+nav {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+nav a {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+nav a:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.theme-toggle {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+main {
+    padding: 3.2rem 2rem 4rem;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.hero-copy {
+    max-width: 520px;
+}
+
+.hero-copy h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+.hero-copy h1 {
+    margin: 0.4rem 0 1rem;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1.05;
+}
+
+.accent-text {
+    color: var(--accent);
+}
+
+.hero-copy p {
+    margin: 0 0 2rem;
+    color: var(--muted);
+    line-height: 1.65;
+    max-width: 520px;
+}
+
+.stats {
+    display: flex;
+    gap: 1.6rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.stat {
+    flex: 1 1 130px;
+    min-width: 120px;
+    padding: 1.25rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.stat h3 {
+    margin: 0;
+    font-size: 2.2rem;
+}
+
+.stat span {
+    display: block;
+    margin-top: 0.4rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2.2rem;
+}
+
+.btn {
+    padding: 0.9rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    border-color: transparent;
+    color: #07070f;
+    box-shadow: 0 18px 40px rgba(124, 80, 255, 0.35);
+}
+
+.btn.outline {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+}
+
+.hero-image {
+    display: grid;
+    place-items: center;
+}
+
+.hero-image .frame {
+    position: relative;
+    width: min(420px, 90vw);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.22);
+    box-shadow: var(--shadow);
+    background: radial-gradient(circle at 20% 25%, rgba(124, 80, 255, 0.4), transparent 55%),
+                radial-gradient(circle at 80% 40%, rgba(92, 152, 255, 0.34), transparent 52%),
+                linear-gradient(135deg, rgba(255,255,255,0.04), rgba(0,0,0,0.15));
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.05) contrast(1.05);
+}
+
+section {
+    padding: 5rem 0 3rem;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin: 0 0 1.5rem;
+    letter-spacing: 0.04em;
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    padding: 1.8rem;
+    box-shadow: var(--shadow);
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.card p {
+    margin: 0.5rem 0;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.about-facts {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.skill-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-list li {
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer {
+    padding: 2.5rem 0 3rem;
+    text-align: center;
+    color: rgba(229, 231, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+    header {
+        padding: 1rem 1.25rem;
+    }
+
+    .hero {
+        gap: 1.5rem;
+    }
+
+    .hero-copy h2 {
+        font-size: 1.4rem;
+    }
+
+    .hero-copy h1 {
+        font-size: 3.4rem;
+    }
+
+    .hero-copy p {
+        font-size: 0.95rem;
+    }
+}
